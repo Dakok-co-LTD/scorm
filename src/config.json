@@ -1,0 +1,11 @@
+{
+    "serviceName": "ScormAPIs",
+    "debug": true,
+    "app": {
+        "host": "0.0.0.0",
+        "port": 4001,
+        "bucket": "uploads/",
+        "scorm_path": "scorms/"
+    },
+    "filesize": 104857600
+}
