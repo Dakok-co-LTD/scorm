@@ -9,6 +9,13 @@ export class ScormAPIs {
     constructor() {
         this._expressApp.use(json())
         this._expressApp.use(urlencoded({ extended: true }))
+        this._expressApp.get('/healthcheck', (req, res) => {
+            res.json({
+                serviceType: 'ScormAPI',
+                serviceName: config.serviceName,
+                timestamp: moment().unix()
+            })
+        })
 
         if (config.debug) {
             this._expressApp.get('/test/form', (req, res) => res.send('<form action="/test/submit" method="post" enctype="multipart/form-data"><input type="file" name="scormZip" /><input type="submit" /></form>'))
