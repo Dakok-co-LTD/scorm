@@ -6,6 +6,23 @@
 	},
 	"item": [
 		{
+			"name": "healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/healthcheck",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "test Form",
 			"request": {
 				"method": "GET",
