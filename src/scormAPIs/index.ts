@@ -3,10 +3,11 @@ import moment from 'moment'
 import * as config from '../config.json'
 import controllers from './routes'
 import storage from './storage'
-
+import helmet from 'helmet'
 export class ScormAPIs {
     private _expressApp = express()
     constructor() {
+        this._expressApp.use(helmet())
         this._expressApp.use(json())
         this._expressApp.use(urlencoded({ extended: true }))
         this._expressApp.get('/healthcheck', (req, res) => {

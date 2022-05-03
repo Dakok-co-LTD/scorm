@@ -12,8 +12,15 @@ import moment from 'moment'
 export class ScormController extends AbstractController {
     constructor() {
         super()
-        this._router.post('/', storage.single('file'), (req, res, next) => this.fileUpload(req, res, next))
-        this._router.use('/files', express.static(path.join(process.cwd(), config.app.scorm_path)))
+        this._router.post(
+            '/',
+            storage.single('file'),
+            (req, res, next) => this.fileUpload(req, res, next)
+        )
+        this._router.use(
+            '/files',
+            express.static(path.join(process.cwd(), config.app.scorm_path))
+        )
     }
 
     private async fileUpload(req: Request, res: Response, next: NextFunction) {
